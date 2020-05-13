@@ -1,0 +1,234 @@
+.popup {
+  //Popup background porperties
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3000;
+  background-color: rgba($color-black, .8);
+  font-size: 1.4rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, .3);
+  }
+
+
+  &__content {
+    //Common popup-content properties
+    @include absCenter;
+    background-color: $color-grey-light-2;
+    box-shadow: 0 2rem 4rem rgba($color-black, .2);
+    border-radius: 3px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(.25);
+    transition: all .5s .2s;
+    padding: 1rem;
+
+    h3 {
+      line-height: normal;
+    }
+
+    h3, h4, h5, h6 {
+      text-align: center;
+    }
+
+    @include respond(tab-port) {
+    }
+
+    //Common chapter main-header properties
+    &__header-container {
+      grid-row: 1 / 2;
+      grid-column: 1 / 4;
+      display: flex;
+      justify-content: center;
+      min-height: min-content;
+
+    }
+
+    //Common chapter properties
+    &__chapter {
+      padding: 1rem;
+      border: 1px solid $color-grey-light-1;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+    }
+
+
+  }
+
+
+  //Common Open/Close popup properies
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    &:link,
+    &:visited {
+      color: $color-grey-dark;
+      position: absolute;
+      top: 1rem;
+      right: 1.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .2s;
+      line-height: 1;
+
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
+
+//-------------------------------------
+
+//Commom chapter porperties
+.chapter__text-block {
+  margin: 0 0 1rem 0;
+
+  &__header {
+    align-self: center;
+    margin: 0 0 1rem 0;
+  }
+
+  &__sub-header {
+
+  }
+
+
+  &__normal-list {
+    padding: 1rem;
+  }
+
+  &__normal-list--none-style {
+    padding: 1rem;
+    list-style-type: none;
+  }
+
+  &__wide-list {
+    list-style-type: none;
+    text-align: center;
+    list-style-position: inside;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-count: 2;
+    height: auto;
+
+    &--3сol {
+      text-align: center;
+      column-count: 3;
+      list-style-type: none;
+    }
+
+    &--4col {
+      text-align: center;
+      column-count: 4;
+      list-style-type: none;
+    }
+
+
+  }
+}
+
+
+.chapter__img-block {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-around;
+
+
+  &__img {
+    border-radius: 3px;
+
+
+  }
+}
+
+
+// Text-transform classes
+
+
+.semi-bold-text {
+  font-weight: 400;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.underline-text {
+  text-decoration: underline;
+}
+
+
+.popup__close {
+  position: absolute;
+}
+
+
+// Phone view---------------------
+@include respond(phone) {
+  body {
+
+  }
+  .popup {
+
+    &__content {
+      width: 100%;
+      overflow: scroll;
+      max-height: 89%;
+      top: 44%;
+      left: 50%;
+
+
+      &__header-container {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+
+      }
+
+      &__chapter {
+        font-size: 130%;
+
+      }
+    }
+
+    &__close {
+      &:link,
+      &:visited {
+        color: $color-grey-dark;
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 3rem;
+        text-decoration: none;
+        display: inline-block;
+        transition: all .2s;
+        line-height: 1;
+      }
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+
+  }
+
+}

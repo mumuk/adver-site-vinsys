@@ -1,0 +1,125 @@
+.contacts-box {
+  width: 4rem;
+  height: 20rem;
+  position: fixed;
+  top: 7rem;
+  right: 3vw;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 10000;
+  border: solid 1px grey;
+  border-radius: 5%;
+  align-items: center;
+
+
+  &__contact-us {
+    display: none;
+  }
+
+  &__contact {
+    margin: .5rem;
+  }
+
+  &__contact-image {
+    fill: greenyellow;
+    stroke-width: 1;
+    //stroke: red;
+    height: 3rem;
+    width: 3rem;
+
+    stroke-linecap: round;
+
+
+    &:hover {
+      transition: 1s;
+      stroke-width: 0.5;
+      stroke: $color-grey-light-1;
+      opacity: 1;
+      transform: scale(1.1);
+    }
+  }
+
+
+  &__contact-viber {
+    background: url("../img/symbol-defs.svg#icon-viber");
+    fill: #7360f2;
+
+    &:hover {
+      fill: #7360f2;
+    }
+  }
+
+  &__contact-telegram {
+    background: url("../img/symbol-defs.svg#icon-telegram");
+    fill: #0088cc;
+
+    &:hover {
+      fill: #0088cc;
+    }
+  }
+
+
+  &__contact-phone {
+    background: url("../img/symbol-defs.svg#icon-phone");
+    fill: green;
+
+    &:hover {
+      fill: green;
+    }
+  }
+
+  &__contact-mail {
+    background: url("../img/symbol-defs.svg#icon-telegram");
+    fill: #d44638;
+
+    &:hover {
+      fill: #d44638;
+    }
+  }
+
+}
+
+@include respond(phone) {
+  .contacts-box {
+    width: 97%;
+    height: 6rem;
+    position: fixed;
+    top: 94%;
+    left: 49%;
+    padding: 1rem;
+    flex-direction: row;
+    align-items: center;
+    transform: translate(-49%, -49%);
+    background-color: rgba($color-primary-dark, 0.3);
+    border-radius: 0;
+
+
+    &__contact-us {
+      color: $color-grey-light-2;
+      font-weight: bold;
+      width: 55%;
+      font-size: 200%;
+
+      line-height: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+    &__contact {
+      margin: .5rem;
+    }
+
+    &__contact-image {
+
+      height: 5rem;
+      width: 5rem;
+
+
+    }
+
+  }
+}
+
