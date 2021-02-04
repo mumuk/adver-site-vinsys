@@ -1781,7 +1781,7 @@ body {
       height: 70%; } }
 
 .popup-10__content {
-  min-width: 65%;
+  min-width: 70%;
   min-height: 95%;
   display: grid;
   grid-template-columns: 40% 57%;
